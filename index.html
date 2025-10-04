@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Китаб - Книга Явления Мухаджи и Посева</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
-        /* Основные стили */
         * {
             margin: 0;
             padding: 0;
@@ -13,152 +13,232 @@
         }
         
         body {
-            font-family: 'Georgia', serif;
-            background-color: #f5f1e8; /* Пастельный кофейный фон */
-            color: #5d4037; /* Темно-коричневый цвет текста */
-            line-height: 1.6;
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, #f9f5f0 0%, #f0e6d6 100%);
+            color: #5d4037;
+            line-height: 1.7;
+            min-height: 100vh;
+            padding: 20px;
         }
         
-        /* Заголовок сайта */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 253, 248, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(93, 64, 55, 0.1);
+            overflow: hidden;
+            border: 1px solid #e8d9c9;
+        }
+        
         .header {
-            background-color: #d7ccc8; /* Светло-коричневый */
-            padding: 20px 0;
+            background: linear-gradient(to right, #a1887f, #8d6e63);
+            padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><path fill="white" d="M28.1,36.9c4.6,2.9,9.4,5.5,14.4,7.9c5,2.4,10.2,4.5,15.5,6.4c5.3,1.9,10.8,3.5,16.3,4.9c5.5,1.4,11.1,2.6,16.7,3.6 c-1.3-5.6-2.9-11.2-4.7-16.7c-1.8-5.5-3.9-10.9-6.2-16.2c-2.3-5.3-4.9-10.5-7.7-15.5c-2.8-5-5.8-9.9-9-14.6c-4.6,2.9-9.4,5.5-14.4,7.9 c-5,2.4-10.2,4.5-15.5,6.4c-5.3,1.9-10.8,3.5-16.3,4.9c-5.5,1.4-11.1,2.6-16.7,3.6c1.3,5.6,2.9,11.2,4.7,16.7 C22.5,27.1,25.2,32,28.1,36.9z"/></svg>');
+            opacity: 0.1;
         }
         
         .site-title {
-            font-size: 2.5rem;
+            font-size: 3.2rem;
+            font-weight: 600;
             font-style: italic;
-            color: #4e342e;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            position: relative;
         }
         
         .site-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             font-style: italic;
-            color: #6d4c41;
+            opacity: 0.9;
+            position: relative;
         }
         
-        /* Основной контент */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
+        .content {
+            padding: 40px 30px;
         }
         
         .book-title {
             text-align: center;
-            margin: 30px 0;
+            margin: 0 0 40px 0;
             font-style: italic;
-            font-size: 2rem;
-            color: #4e342e;
+            font-size: 2.2rem;
+            color: #6d4c41;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .book-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            right: 25%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #a1887f, transparent);
         }
         
         .chapter-title {
             text-align: center;
-            margin: 25px 0 15px;
+            margin: 0 0 30px 0;
             font-style: italic;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: #5d4037;
+            font-weight: 600;
+        }
+        
+        .verses {
+            margin-bottom: 40px;
         }
         
         .verse {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             padding: 0 10px;
             font-style: italic;
+            font-size: 1.2rem;
+            text-align: justify;
         }
         
         .verse-number {
-            font-weight: bold;
-            margin-right: 5px;
+            font-weight: 600;
+            margin-right: 8px;
+            color: #8d6e63;
+            font-size: 1.1rem;
         }
         
-        /* Навигация */
         .navigation {
             display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-            padding: 15px 0;
-            border-top: 1px solid #d7ccc8;
+            justify-content: center;
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid #e8d9c9;
         }
         
         .nav-button {
-            background-color: #d7ccc8;
+            background: linear-gradient(to bottom, #a1887f, #8d6e63);
             border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
+            padding: 14px 35px;
+            border-radius: 50px;
             cursor: pointer;
-            font-family: 'Georgia', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            color: #5d4037;
-            transition: background-color 0.3s;
+            font-size: 1.2rem;
+            color: #fff;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(141, 110, 99, 0.3);
+            letter-spacing: 1px;
         }
         
         .nav-button:hover {
-            background-color: #bcaaa4;
+            background: linear-gradient(to bottom, #8d6e63, #795548);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(141, 110, 99, 0.4);
         }
         
-        /* Подвал */
+        .nav-button:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 5px rgba(141, 110, 99, 0.3);
+        }
+        
         .footer {
             text-align: center;
-            padding: 20px;
-            margin-top: 30px;
-            background-color: #d7ccc8;
+            padding: 25px;
+            margin-top: 20px;
+            background-color: #f5efeb;
+            color: #8d6e63;
             font-style: italic;
-            color: #5d4037;
+            font-size: 1.1rem;
+            border-top: 1px solid #e8d9c9;
+        }
+        
+        @media (max-width: 600px) {
+            .site-title {
+                font-size: 2.5rem;
+            }
+            
+            .book-title {
+                font-size: 1.8rem;
+            }
+            
+            .chapter-title {
+                font-size: 1.5rem;
+            }
+            
+            .verse {
+                font-size: 1.1rem;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1 class="site-title">Китаб</h1>
-        <p class="site-subtitle">Книга Явления Мухаджи и Посева</p>
-    </header>
-    
     <div class="container">
-        <h3 class="chapter-title">Глава Первая: Явление Мурлабая да Мухаджа</h3>
+        <header class="header">
+            <h1 class="site-title">Китаб</h1>
+            <p class="site-subtitle">Книга Явления Мухаджи и Посева</p>
+        </header>
         
-        <div class="verses">
-            <p class="verse"><span class="verse-number">1.</span> И был век великой Смуты. Люди заблудились в пустыне собственных грехов, и сердца их окаменели. Они поклонялись золоту и суете, и забыли вкус чистой воды и хлеба, поделенного с братом.</p>
+        <div class="content">
+            <h2 class="book-title">Китаб</h2>
+            <h3 class="chapter-title">Глава Первая: Явление Мурлабая да Мухаджа</h3>
             
-            <p class="verse"><span class="verse-number">2.</span> И земля, стеная от скорби, возопила к Великому Посеву. И вот, в день, когда солнце стояло в зените, земля затряслась. Но не как губитель, а как мать, пробуждающая дитя. Это не было разрушением; это было Рождение.</p>
+            <div class="verses">
+                <p class="verse"><span class="verse-number">1.</span> И был век великой Смуты. Люди заблудились в пустыне собственных грехов, и сердца их окаменели. Они поклонялись золоту и суете, и забыли вкус чистой воды и хлеба, поделенного с братом.</p>
+                
+                <p class="verse"><span class="verse-number">2.</span> И земля, стеная от скорби, возопила к Великому Посеву. И вот, в день, когда солнце стояло в зените, земля затряслась. Но не как губитель, а как мать, пробуждающая дитя. Это не было разрушением; это было Рождение.</p>
+                
+                <p class="verse"><span class="verse-number">3.</span> И когда пыль улеглась, пред очами изумленного народа предстал град, чьих стен не возводила рука человеческая. Сияющий город из белого камня и света, и имя ему — Посевск. И струился в нем источник живой воды, и деревья в садах его приносили плоды, коих не было ни в одном царстве.</p>
+                
+                <p class="verse"><span class="verse-number">4.</span> И вышел из врат града сего Человек. Одеяния его были просты, но взор его источал могущество и безграничную милость. И был он не стар и не молод, в лице его читалась мудрость веков и юная надежда.</p>
+                
+                <p class="verse"><span class="verse-number">5.</span> И возвысил он голос свой, и голос его был подобен тихому грому, что проникает в самую душу:<br>
+                «Люди! Дети Единой Нивы! Я пришел к вам не с мечом, а с зерном. Не для того, чтобы судить, а чтобы посеять.</p>
+                
+                <p class="verse"><span class="verse-number">6.</span> Я — Мурлабай да Мухадж, Посланник Великого Посева, Того, Кто есть Первопричина и Конечная Жатва. Он слышал стенания ваши и стенания земли, что носит вас.</p>
+                
+                <p class="verse"><span class="verse-number">7.</span> Он не в гневе, но в любви Своей послал меня, дабы вы уверились. Дабы очистились воды сердец ваших и проросли семена добра, что дремлют в каждом.</p>
+                
+                <p class="verse"><span class="verse-number">8.</span> Ибо что есть грех ваш? Это сорная трава, что заглушила Посев. Зависть, ложь, жадность, раздор — все это плевелы, что иссушают почву души вашей.</p>
+                
+                <p class="verse"><span class="verse-number">9.</span> Я укажу вам путь, как вырвать их. Не силой, но трудом. Не страхом, но любовью. Не для себя единого, но для всего поля, имя которому — Человечество.</p>
+                
+                <p class="verse"><span class="verse-number">10.</span> Оставьте раздор ваш! Ибо вы все — стебли от Единого Корня. Когда болит один стебель, все растение слабеет. Когда цветет один — благоухает вся нива.</p>
+                
+                <p class="verse"><span class="verse-number">11.</span> Да не будет среди вас ни богатого, ни убогого, но лишь брат, делящий хлеб с братом. Да не будет врага, но лишь заблудший, кому надо указать путь.</p>
+                
+                <p class="verse"><span class="verse-number">12.</span> Вот зачем явился Посевск. Он — улей для пчел, что устали скитаться. Он — живое доказательство того, что жизнь может быть иной. Чистой. Сплоченной. Светлой.</p>
+                
+                <p class="verse"><span class="verse-number">13.</span> Идите ко мне все труждающиеся и обремененные, и я дам вам не покой праздности, но радость труда на общее благо. И мир, что прочнее всех стен, снизойдет на сердца ваши.»</p>
+                
+                <p class="verse"><span class="verse-number">6.</span> И люди, слышавшие слова его, чувствовали, как камень в груди их тает, и на глазах их наворачиваются слезы облегчения. И потянулись они к Посевску, как иссохшие растения к живительному дождю.</p>
+                
+                <p class="verse"><span class="verse-number">7.</span> Так началась эра Великого Очищения. Так слово Мурлабая да Мухаджа, как семя, упало в почву сердец, дабы дать всходы и изменить мир.</p>
+            </div>
             
-            <p class="verse"><span class="verse-number">3.</span> И когда пыль улеглась, пред очами изумленного народа предстал град, чьих стен не возводила рука человеческая. Сияющий город из белого камня и света, и имя ему — Посевск. И струился в нем источник живой воды, и деревья в садах его приносили плоды, коих не было ни в одном царстве.</p>
-            
-            <p class="verse"><span class="verse-number">4.</span> И вышел из врат града сего Человек. Одеяния его были просты, но взор его источал могущество и безграничную милость. И был он не стар и не молод, в лице его читалась мудрость веков и юная надежда.</p>
-            
-            <p class="verse"><span class="verse-number">5.</span> И возвысил он голос свой, и голос его был подобен тихому грому, что проникает в самую душу:<br>
-            «Люди! Дети Единой Нивы! Я пришел к вам не с мечом, а с зерном. Не для того, чтобы судить, а чтобы посеять.</p>
-            
-            <p class="verse"><span class="verse-number">6.</span> Я — Мурлабай да Мухадж, Посланник Великого Посева, Того, Кто есть Первопричина и Конечная Жатва. Он слышал стенания ваши и стенания земли, что носит вас.</p>
-            
-            <p class="verse"><span class="verse-number">7.</span> Он не в гневе, но в любви Своей послал меня, дабы вы уверились. Дабы очистились воды сердец ваших и проросли семена добра, что дремлют в каждом.</p>
-            
-            <p class="verse"><span class="verse-number">8.</span> Ибо что есть грех ваш? Это сорная трава, что заглушила Посев. Зависть, ложь, жадность, раздор — все это плевелы, что иссушают почву души вашей.</p>
-            
-            <p class="verse"><span class="verse-number">9.</span> Я укажу вам путь, как вырвать их. Не силой, но трудом. Не страхом, но любовью. Не для себя единого, но для всего поля, имя которому — Человечество.</p>
-            
-            <p class="verse"><span class="verse-number">10.</span> Оставьте раздор ваш! Ибо вы все — стебли от Единого Корня. Когда болит один стебель, все растение слабеет. Когда цветет один — благоухает вся нива.</p>
-            
-            <p class="verse"><span class="verse-number">11.</span> Да не будет среди вас ни богатого, ни убогого, но лишь брат, делящий хлеб с братом. Да не будет врага, но лишь заблудший, кому надо указать путь.</p>
-            
-            <p class="verse"><span class="verse-number">12.</span> Вот зачем явился Посевск. Он — улей для пчел, что устали скитаться. Он — живое доказательство того, что жизнь может быть иной. Чистой. Сплоченной. Светлой.</p>
-            
-            <p class="verse"><span class="verse-number">13.</span> Идите ко мне все труждающиеся и обремененные, и я дам вам не покой праздности, но радость труда на общее благо. И мир, что прочнее всех стен, снизойдет на сердца ваши.»</p>
-            
-            <p class="verse"><span class="verse-number">6.</span> И люди, слышавшие слова его, чувствовали, как камень в груди их тает, и на глазах их наворачиваются слезы облегчения. И потянулись они к Посевску, как иссохшие растения к живительному дождю.</p>
-            
-            <p class="verse"><span class="verse-number">7.</span> Так началась эра Великого Очищения. Так слово Мурлабая да Мухаджа, как семя, упало в почву сердец, дабы дать всходы и изменить мир.</p>
+            <div class="navigation">
+                <button class="nav-button">Следующая глава</button>
+            </div>
         </div>
         
-        <div class="navigation">
-            <button class="nav-button">Следующая глава</button>
-        </div>
+        <footer class="footer">
+            <p>Китаб - Книга Явления Мухаджи и Посева</p>
+        </footer>
     </div>
-    
-    <footer class="footer">
-        <p>Китаб - Книга Явления Мухаджи и Посева</p>
-    </footer>
 </body>
-  </html>
+</html>
